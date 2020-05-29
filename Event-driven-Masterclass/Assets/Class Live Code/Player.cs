@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
 
     private Vector3 _movementDirectionVector;
 
+    [SerializeField] private float health = 100;
 
-    void Start()
+
+    public static System.Action<float> onHealthChanged;
+
+    void SetHealth(float newHealth)
     {
-        
+        health = newHealth;
+        onHealthChanged?.Invoke(newHealth);
     }
 
     void Update()
@@ -32,5 +37,8 @@ public class Player : MonoBehaviour
 
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            SetHealth(health - 1f);
     }
 }

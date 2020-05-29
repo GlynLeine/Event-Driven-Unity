@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    Text text;
+    public Text text;
+
+    private void Start()
+    {
+        Player.onHealthChanged += OnHealthChanged;
+    }
 
     public void OnHealthChanged(float health)
     {
