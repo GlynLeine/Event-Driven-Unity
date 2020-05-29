@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
         sound();
 
         transform.position += _movementDirectionVector.normalized * speed * Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1"))
+            SetHealth(health - 1f);
     }
 
     private void sound()
@@ -47,8 +50,5 @@ public class Player : MonoBehaviour
             Instantiate(footstepParticles, transform.position,Quaternion.identity);
 
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            SetHealth(health - 1f);
     }
 }
