@@ -11,7 +11,7 @@ public class DamageUI : MonoBehaviour
     void Start()
     {
         Player player = FindObjectOfType<Player>();
-        previousHealth = player.health;
+        previousHealth = player.Health;
         player.onHealthChanged += OnHealthChanged;
     }
 

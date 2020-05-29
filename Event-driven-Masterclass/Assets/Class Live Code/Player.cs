@@ -11,8 +11,13 @@ public class Player : MonoBehaviour
     private AudioSource source;
     private Vector3 _movementDirectionVector;
 
-    public float health = 100;
+    [SerializeField] private float health = 100;
 
+    public float Health
+    {
+        get => health;
+        private set => SetHealth(value);
+    }
 
     public System.Action<float> onHealthChanged;
 
@@ -20,7 +25,7 @@ public class Player : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
     }
-    void SetHealth(float newHealth)
+    public void SetHealth(float newHealth)
     {
         health = newHealth;
         onHealthChanged?.Invoke(newHealth);
@@ -48,7 +53,6 @@ public class Player : MonoBehaviour
                 source.Play();
             }
             Instantiate(footstepParticles, transform.position,Quaternion.identity);
-
         }
     }
 }

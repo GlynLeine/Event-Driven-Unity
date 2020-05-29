@@ -9,7 +9,9 @@ public class HealthUI : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<Player>().onHealthChanged += OnHealthChanged;
+        Player player = FindObjectOfType<Player>();
+        player.onHealthChanged += OnHealthChanged;
+        text.text = "HP " + player.Health;
     }
 
     public void OnHealthChanged(float health)
