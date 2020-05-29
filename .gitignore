@@ -59,3 +59,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 Event-driven-Masterclass/Library
+Event-driven-Masterclass/obj
+Event-driven-Masterclass/Temp
