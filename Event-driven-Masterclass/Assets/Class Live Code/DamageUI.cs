@@ -6,18 +6,27 @@ using UnityEngine.UI;
 public class DamageUI : MonoBehaviour
 {
     private float previousHealth;
-    public Text text;
+    [SerializeField] private Text text;
+    public Player player;
 
-    void Start()
+    void OnEnable()
     {
-        Player player = FindObjectOfType<Player>();
-        previousHealth = player.Health;
-        player.onHealthChanged += OnHealthChanged;
+        if (player != null)
+        {
+            previousHealth = player.Health;
+            player.OnHealthChanged += OnHealthChanged;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (player != null)
+            player.OnHealthChanged -= OnHealthChanged;
     }
 
     void OnHealthChanged(float health)
     {
-        text.gameObject.SetActive(true);
+        text.enabled = true;
         text.text = (previousHealth - health).ToString();
         previousHealth = health;
         StartCoroutine(DisplayCoroutine());
@@ -26,6 +35,6 @@ public class DamageUI : MonoBehaviour
     IEnumerator DisplayCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
-        text.gameObject.SetActive(false);
+        text.enabled = false;
     }
 }

@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 78658012}
+  player: {fileID: 1838387627}
 --- !u!1 &103118698
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +476,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7094018726341931974, guid: 3146d7c0a9448a849819d614c4f6991a,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7814619126235862137, guid: 3146d7c0a9448a849819d614c4f6991a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,7 +1233,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 91848f9aba1ad3547bf9540e5cd9dc86, type: 3}
   footstepParticles: {fileID: 5128791543972785074, guid: 3056cea49f674e38b01c173b44fc812e,
     type: 3}
-  health: 100
+  health: 999
 --- !u!136 &1838387628
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1578,6 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2046716403}
+  player: {fileID: 1838387627}
 --- !u!114 &2046716403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7094018726341931974, guid: 3146d7c0a9448a849819d614c4f6991a,

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         private set => SetHealth(value);
     }
 
-    public System.Action<float> onHealthChanged;
+    public event System.Action<float> OnHealthChanged;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public void SetHealth(float newHealth)
     {
         health = newHealth;
-        onHealthChanged?.Invoke(newHealth);
+        OnHealthChanged?.Invoke(newHealth);
     }
 
     void Update()

@@ -5,13 +5,22 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    public Text text;
+    [SerializeField] private Text text;
+    public Player player;
 
-    private void Start()
+    private void OnEnable()
     {
-        Player player = FindObjectOfType<Player>();
-        player.onHealthChanged += OnHealthChanged;
-        text.text = "HP " + player.Health;
+        if (player != null)
+        {
+            player.OnHealthChanged += OnHealthChanged;
+            text.text = "HP " + player.Health;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (player != null)
+            player.OnHealthChanged -= OnHealthChanged;
     }
 
     public void OnHealthChanged(float health)
