@@ -10,8 +10,9 @@ public class DamageUI : MonoBehaviour
 
     void Start()
     {
-        previousHealth = FindObjectOfType<Player>().health;
-        Player.onHealthChanged += OnHealthChanged;
+        Player player = FindObjectOfType<Player>();
+        previousHealth = player.health;
+        player.onHealthChanged += OnHealthChanged;
     }
 
     void OnHealthChanged(float health)

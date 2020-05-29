@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public float health = 100;
 
 
-    public static System.Action<float> onHealthChanged;
+    public System.Action<float> onHealthChanged;
 
     private void Start()
     {
