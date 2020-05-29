@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private AudioSource source;
     private Vector3 _movementDirectionVector;
 
-    [SerializeField] private float health = 100;
+    public float health = 100;
 
 
     public static System.Action<float> onHealthChanged;
