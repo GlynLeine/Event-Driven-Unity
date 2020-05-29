@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     public static System.Action<float> onHealthChanged;
 
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
     void SetHealth(float newHealth)
     {
         health = newHealth;
